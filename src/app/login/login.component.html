@@ -1,0 +1,17 @@
+<form class="container p-5 text-center" #logIn="ngForm" (ngSubmit)="onSubmit(logIn)">
+
+    <input type="email" name="email" class="form-control w-50 ms-auto me-auto" placeholder="likith@ibm.com" required
+        ngModel email #email="ngModel" (focus)="onChange(email)">
+    <span *ngIf='email.invalid && email.touched' style="color: red;"> Please enter valid email</span>
+    <br>
+    <input type="password" name="pass" class="form-control w-50 ms-auto me-auto" placeholder="Please enter 8 characters"
+        ngModel #pass="ngModel" required minlength="8" (focus)="onChange2(pass)">
+    <div>
+        <span *ngIf='pass.invalid && pass.touched' style="color: red;"> Minimum length for password is 8</span>
+    </div>
+    <br>
+    <button class=" w-25  form-control  btn btn-success " [disabled]='logIn.invalid'>LogIn</button>
+
+</form>
+
+<router-outlet></router-outlet>
